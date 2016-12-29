@@ -1,0 +1,29 @@
+{
+  "name": "searchable-input",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "repository": "git@github.com:khirayama/searchable-input.git",
+  "author": "khirayama",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.8 <7",
+    "npm": ">=3.10 <4"
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "browser-sync": "^2.18.5",
+    "coffee-script": "^1.12.2",
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0.2",
+    "gulp-pleeease": "^2.0.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.0.0",
+    "jsdom": "^9.9.1",
+    "lodash": "^4.17.3",
+    "mocha": "^3.2.0",
+    "power-assert": "^1.4.2",
+    "sinon": "^1.17.6",
+    "tv4": "^1.2.7"
+  }
+}
