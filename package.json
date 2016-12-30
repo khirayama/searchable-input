@@ -11,9 +11,12 @@
   },
   "scripts": {
     "pre-build": "mkdir -p ./dist",
+    "build": "npm run build:scripts && npm run build:styles",
     "build:scripts": "npm run pre-build && $(npm bin)/browserify -t coffeeify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
+    "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
     "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
-    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -v -t coffeeify -o ./dist/searchable-input.js"
+    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -v -t coffeeify -o ./dist/searchable-input.js",
+    "watch:styles": "npm run pre-build && $(npm bin)/node-sass -w ./src/styles/index.scss ./dist/searchable-input.css"
   },
   "dependencies": {
     "browser-sync": "^2.18.5",
@@ -29,6 +32,7 @@
     "jsdom": "^9.9.1",
     "lodash": "^4.17.3",
     "mocha": "^3.2.0",
+    "node-sass": "^4.1.1",
     "power-assert": "^1.4.2",
     "sinon": "^1.17.6",
     "tv4": "^1.2.7",
