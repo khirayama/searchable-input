@@ -10,11 +10,18 @@
     "npm": ">=3.10 <4"
   },
   "scripts": {
+    "pre-build": "mkdir -p ./dist",
+    "build:scripts": "npm run pre-build && $(npm bin)/browserify -t coffeeify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
+    "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
+    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -v -t coffeeify -o ./dist/searchable-input.js"
   },
   "dependencies": {
     "browser-sync": "^2.18.5",
+    "browserify": "^13.1.1",
     "coffee-script": "^1.12.2",
+    "coffeeify": "^2.1.0",
     "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.3",
     "gulp-if": "^2.0.2",
     "gulp-pleeease": "^2.0.2",
     "gulp-plumber": "^1.1.0",
@@ -24,6 +31,7 @@
     "mocha": "^3.2.0",
     "power-assert": "^1.4.2",
     "sinon": "^1.17.6",
-    "tv4": "^1.2.7"
+    "tv4": "^1.2.7",
+    "watchify": "^3.8.0"
   }
 }
