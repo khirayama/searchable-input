@@ -13,14 +13,18 @@
 - Copy [searchable-input.js](/dist/searchable-input.js) and [searchable-input.css](/dist/searchable-input.css).
 - Paste into your app.
 
-### Use via npm
+### Use via Node.js/npm
 ```bash
 npm install --save searchable-input
 ```
 
+```js
+const SearchableInput = require('searchable-input');
+```
+
 
 ## Usage
-### Basic Usage
+### Basic usage
 ```js
 var searchableInputItems = [{
   name: '現金および預金',
@@ -76,7 +80,7 @@ searchableInput.on('change', function(value) {
 });
 ```
 
-### Via a select element
+### Generate from select element
 ```html
 <select class="js-select-applied-searchable-input" name="select_applied_searchable_input">
   <option value="1">ITEM 1</option>
