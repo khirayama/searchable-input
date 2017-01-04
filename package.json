@@ -15,7 +15,7 @@
     ]
   },
   "scripts": {
-    "develop": "npm run build && npm-run-all -p watch:scripts watch:styles serve",
+    "develop": "npm run build && $(npm bin)/npm-run-all -p watch:scripts watch:styles serve",
     "pre-build": "mkdir -p ./dist",
     "build": "npm run build:scripts:node && npm run build:scripts:browser && npm run build:styles",
     "build:scripts:browser": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
