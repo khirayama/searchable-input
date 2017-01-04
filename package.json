@@ -17,8 +17,9 @@
   "scripts": {
     "develop": "npm run build && npm-run-all -p watch:scripts watch:styles serve",
     "pre-build": "mkdir -p ./dist",
-    "build": "npm run build:scripts && npm run build:styles",
-    "build:scripts": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
+    "build": "npm run build:scripts:node && npm run build:scripts:browser && npm run build:styles",
+    "build:scripts:browser": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
+    "build:scripts:node": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/SearchableInput.coffee > ./dist/index.js",
     "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
     "serve": "$(npm bin)/browser-sync start --server ./public --files ./public",
     "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
