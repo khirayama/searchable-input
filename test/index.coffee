@@ -2,7 +2,8 @@ jsdom = require('jsdom').jsdom
 assert = require('power-assert')
 sinon = require('sinon')
 _ = require('lodash')
-SearchableInput = require('../src/scripts/index')
+
+SearchableInput = require('../src/scripts/SearchableInput')
 
 items = [{
   name: '現金',

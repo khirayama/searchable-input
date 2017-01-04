@@ -22,7 +22,7 @@
     "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
     "serve": "$(npm bin)/browser-sync start --server ./public --files ./public",
     "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
-    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -v -o ./dist/searchable-input.js",
+    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee --extension='.coffee' -v -o ./dist/searchable-input.js",
     "watch:styles": "npm run pre-build && $(npm bin)/node-sass -w ./src/styles/index.scss ./dist/searchable-input.css"
   },
   "dependencies": {
