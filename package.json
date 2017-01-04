@@ -9,13 +9,18 @@
     "node": ">=6.8 <7",
     "npm": ">=3.10 <4"
   },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  },
   "scripts": {
     "pre-build": "mkdir -p ./dist",
     "build": "npm run build:scripts && npm run build:styles",
-    "build:scripts": "npm run pre-build && $(npm bin)/browserify -t coffeeify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
+    "build:scripts": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
     "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
     "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
-    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -v -t coffeeify -o ./dist/searchable-input.js",
+    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -v -o ./dist/searchable-input.js",
     "watch:styles": "npm run pre-build && $(npm bin)/node-sass -w ./src/styles/index.scss ./dist/searchable-input.css"
   },
   "dependencies": {
