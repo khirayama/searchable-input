@@ -15,16 +15,18 @@
     ]
   },
   "scripts": {
-    "develop": "npm-run-all -p watch:scripts watch:styles",
+    "develop": "npm run build && npm-run-all -p watch:scripts watch:styles serve",
     "pre-build": "mkdir -p ./dist",
     "build": "npm run build:scripts && npm run build:styles",
     "build:scripts": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
     "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
+    "serve": "$(npm bin)/browser-sync start --server ./public --files ./public",
     "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
     "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -v -o ./dist/searchable-input.js",
     "watch:styles": "npm run pre-build && $(npm bin)/node-sass -w ./src/styles/index.scss ./dist/searchable-input.css"
   },
   "dependencies": {
+    "browser-sync": "^2.18.5",
     "browserify": "^13.1.1",
     "coffee-script": "^1.12.2",
     "coffeeify": "^2.1.0",
