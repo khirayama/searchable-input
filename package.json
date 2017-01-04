@@ -15,6 +15,7 @@
     ]
   },
   "scripts": {
+    "develop": "npm-run-all -p watch:scripts watch:styles",
     "pre-build": "mkdir -p ./dist",
     "build": "npm run build:scripts && npm run build:styles",
     "build:scripts": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
@@ -32,6 +33,7 @@
     "lodash": "^4.17.3",
     "mocha": "^3.2.0",
     "node-sass": "^4.1.1",
+    "npm-run-all": "^4.0.0",
     "power-assert": "^1.4.2",
     "sinon": "^1.17.6",
     "watchify": "^3.8.0"
