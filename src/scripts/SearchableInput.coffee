@@ -1,3 +1,4 @@
+escapeHtml = require('escape-html')
 EventEmitter = require('events').EventEmitter
 
 TAB_KEYCODE = 9
@@ -373,7 +374,7 @@ class SearchableInput extends EventEmitter
     html = ''
     if items != null
       for item, index in items
-        escapeItem = _.escape(JSON.stringify(item))
+        escapeItem = escapeHtml(JSON.stringify(item))
         if item.items
           html += '<li><span class="searchable-input-list-title">' + item.name + '</span><ul>' + @_templateItems(item.items, itemIndex) + '</ul></li>'
           itemIndex += item.items.length

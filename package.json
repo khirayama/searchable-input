@@ -26,7 +26,9 @@
     "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee --extension='.coffee' -v -o ./dist/searchable-input.js",
     "watch:styles": "npm run pre-build && $(npm bin)/node-sass -w ./src/styles/index.scss ./dist/searchable-input.css"
   },
-  "dependencies": {},
+  "dependencies": {
+    "escape-html": "^1.0.3"
+  },
   "devDependencies": {
     "browser-sync": "^2.18.5",
     "browserify": "^13.3.0",
