@@ -1,7 +1,7 @@
 {
   "name": "searchable-input",
   "version": "0.0.0",
-  "main": "dist/index.js",
+  "main": "dist/SearchableInput.js",
   "repository": "git@github.com:khirayama/searchable-input.git",
   "author": "khirayama",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "pre-build": "mkdir -p ./dist",
     "build": "npm run build:scripts:node && npm run build:scripts:browser && npm run build:styles",
     "build:scripts:browser": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
-    "build:scripts:node": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/SearchableInput.coffee > ./dist/index.js",
+    "build:scripts:node": "npm run pre-build && $(npm bin)/coffee -c -o ./dist ./src/scripts/SearchableInput.coffee",
     "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
     "serve": "$(npm bin)/browser-sync start --server ./public --files ./public",
     "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
