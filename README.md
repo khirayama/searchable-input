@@ -131,6 +131,10 @@ class SearchableInput {
 }
 ```
 
+### Instance Methods
+- `updateItem(item)`: 選択中の項目を変更する。引数の `item` は `{ name, inputValueKeyで指定したキー }`。
+- `updateItems(items)`: 項目リストを変更する。
+
 ### Events
 ```js
 /**
