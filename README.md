@@ -126,7 +126,7 @@ new SearchableInput(document.queryselector('.js-select-applied-searchable-input'
  *                                        パラメータは items 引数の 1 要素と同様。
  */
 class SearchableInput {
-  constructor(el, items, name, optios) {
+  constructor(el, items, optios) {
   }
 }
 ```
