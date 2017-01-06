@@ -20,22 +20,17 @@
     "package.json",
     "yarn.lock"
   ],
-  "browserify": {
-    "transform": [
-      "coffeeify"
-    ]
-  },
   "scripts": {
     "develop": "npm run build && $(npm bin)/npm-run-all -p watch:scripts watch:styles serve",
     "pre-build": "mkdir -p ./dist",
     "prepare-release": "npm run build && cp ./dist/searchable-input.js ./pkg/ && cp ./dist/searchable-input.css ./pkg/",
     "build": "npm run build:scripts:node && npm run build:scripts:browser && npm run build:styles",
-    "build:scripts:browser": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
+    "build:scripts:browser": "npm run pre-build && $(npm bin)/browserify -t coffeeify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
     "build:scripts:node": "npm run pre-build && $(npm bin)/coffee -c -o ./dist ./src/scripts/SearchableInput.coffee && mv ./dist/SearchableInput.js ./dist/index.js",
     "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
     "serve": "$(npm bin)/browser-sync start --server ./public --files ./public",
     "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
-    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee --extension='.coffee' -v -o ./dist/searchable-input.js",
+    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee -t coffeeify --extension='.coffee' -v -o ./dist/searchable-input.js",
     "watch:styles": "npm run pre-build && $(npm bin)/node-sass -w ./src/styles/index.scss ./dist/searchable-input.css"
   },
   "dependencies": {
