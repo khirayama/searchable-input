@@ -164,8 +164,8 @@ yarn install
 npm run prepare-release
 git add ./pkg
 git ci ./pkg
-git push
 npm version {patch|minor|major}
 npm publish
+git push
 git push --tags
 ```
