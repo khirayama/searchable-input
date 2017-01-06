@@ -1,0 +1,114 @@
+.searchable-input-container {
+  display: inline-block; }
+
+.searchable-input-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0);
+  z-index: 0; }
+
+.searchable-input {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative; }
+  .searchable-input div,
+  .searchable-input a,
+  .searchable-input input,
+  .searchable-input ul,
+  .searchable-input li {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; }
+  .searchable-input .searchable-input-label {
+    display: inline-block;
+    position: relative;
+    background: #f8f8f8;
+    border: solid 1px #d8d8d8;
+    padding: 3px 25px 3px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    text-decoration: none;
+    color: inherit; }
+    .searchable-input .searchable-input-label:after {
+      position: absolute;
+      font-family: 'FontAwesome';
+      content: "\F078";
+      top: auto;
+      right: 5px; }
+  .searchable-input .searchable-input-search-box {
+    background: #fff;
+    padding: 3px;
+    border-radius: 3px;
+    border: solid 1px #aaa;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10; }
+  .searchable-input .searchable-input-search-box {
+    position: absolute;
+    top: 100%;
+    padding-top: 40px; }
+    .searchable-input .searchable-input-search-box .searchable-input-search-input-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      padding: 5px 5px 3px;
+      margin: 0 0 5px 0; }
+      .searchable-input .searchable-input-search-box .searchable-input-search-input-container .searchable-input-search-input {
+        width: 100%;
+        height: 30px;
+        padding: 3px 5px;
+        outline: none;
+        font-size: inherit; }
+    .searchable-input .searchable-input-search-box .searchable-input-list-container {
+      min-width: 200px;
+      max-height: 270px;
+      overflow: scroll; }
+      .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list .searchable-input-list-title {
+        font-weight: bold; }
+        .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list .searchable-input-list-title + ul {
+          padding: 5px 0 3px; }
+      .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list .searchable-input-list-item {
+        cursor: pointer;
+        padding: 3px 5px;
+        line-height: 24px; }
+      .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list .searchable-input-list-item.is-selected {
+        background: #1982da;
+        color: #fff; }
+      .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list:hover .searchable-input-list-item {
+        background: #fff;
+        color: inherit; }
+      .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list:hover .searchable-input-list-item:hover {
+        background: #1982da;
+        color: #fff; }
+      .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list:hover .searchable-input-list-item.is-selected {
+        background: #fff; }
+      .searchable-input .searchable-input-search-box .searchable-input-list-container .searchable-input-list:hover .searchable-input-list-item:hover.is-selected {
+        background: #1982da;
+        color: #fff; }
+  .searchable-input .searchable-input-search-box__top {
+    top: auto;
+    bottom: 100%; }
+  .searchable-input .searchable-input-search-box__right {
+    left: auto;
+    right: 0; }
+
+.is-large .searchable-input-label {
+  width: 198px;
+  line-height: 28px;
+  padding: 0 20px 0 5px; }
+
+.is-medium .searchable-input-label {
+  width: 143px;
+  line-height: 28px;
+  padding: 0 20px 0 5px; }

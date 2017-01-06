@@ -156,3 +156,14 @@ class SearchableInput {
 ```bash
 yarn install
 ```
+
+
+## Release Flow
+```bash
+npm run prepare-release
+git add ./pkg
+git ci ./pkg
+npm version {patch|minor|major}
+npm publish
+git push --tags
+```

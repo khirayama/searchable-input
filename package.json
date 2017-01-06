@@ -17,6 +17,7 @@
   "scripts": {
     "develop": "npm run build && $(npm bin)/npm-run-all -p watch:scripts watch:styles serve",
     "pre-build": "mkdir -p ./dist",
+    "prepare-release": "npm run build && cp ./dist/searchable-input.js ./pkg/ && cp ./dist/searchable-input.css ./pkg/",
     "build": "npm run build:scripts:node && npm run build:scripts:browser && npm run build:styles",
     "build:scripts:browser": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
     "build:scripts:node": "npm run pre-build && $(npm bin)/coffee -c -o ./dist ./src/scripts/SearchableInput.coffee && mv ./dist/SearchableInput.js ./dist/index.js",
