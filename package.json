@@ -1,7 +1,7 @@
 {
   "name": "searchable-input",
   "version": "0.0.0",
-  "main": "dist/index.js",
+  "main": "dist/SearchableInput.js",
   "repository": "git@github.com:khirayama/searchable-input.git",
   "author": "khirayama",
   "license": "MIT",
@@ -9,21 +9,39 @@
     "node": ">=6.8 <7",
     "npm": ">=3.10 <4"
   },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  },
   "scripts": {
+    "develop": "npm run build && $(npm bin)/npm-run-all -p watch:scripts watch:styles serve",
+    "pre-build": "mkdir -p ./dist",
+    "build": "npm run build:scripts:node && npm run build:scripts:browser && npm run build:styles",
+    "build:scripts:browser": "npm run pre-build && $(npm bin)/browserify --extension='.coffee' ./src/scripts/index.coffee > ./dist/searchable-input.js",
+    "build:scripts:node": "npm run pre-build && $(npm bin)/coffee -c -o ./dist ./src/scripts/SearchableInput.coffee",
+    "build:styles": "npm run pre-build && $(npm bin)/node-sass ./src/styles/index.scss ./dist/searchable-input.css",
+    "serve": "$(npm bin)/browser-sync start --server ./public --files ./public",
+    "test": "$(npm bin)/mocha --recursive --compilers coffee:coffee-script/register ./test",
+    "watch:scripts": "npm run pre-build && $(npm bin)/watchify ./src/scripts/index.coffee --extension='.coffee' -v -o ./dist/searchable-input.js",
+    "watch:styles": "npm run pre-build && $(npm bin)/node-sass -w ./src/styles/index.scss ./dist/searchable-input.css"
   },
   "dependencies": {
+    "escape-html": "^1.0.3"
+  },
+  "devDependencies": {
     "browser-sync": "^2.18.5",
+    "browserify": "^13.3.0",
     "coffee-script": "^1.12.2",
+    "coffeeify": "^2.1.0",
     "gulp": "^3.9.1",
-    "gulp-if": "^2.0.2",
-    "gulp-pleeease": "^2.0.2",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.0.0",
     "jsdom": "^9.9.1",
-    "lodash": "^4.17.3",
+    "lodash": "^4.17.4",
     "mocha": "^3.2.0",
+    "node-sass": "^4.1.1",
+    "npm-run-all": "^4.0.0",
     "power-assert": "^1.4.2",
-    "sinon": "^1.17.6",
-    "tv4": "^1.2.7"
+    "sinon": "^1.17.7",
+    "watchify": "^3.8.0"
   }
 }
