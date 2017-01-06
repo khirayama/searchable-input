@@ -9,6 +9,16 @@
     "node": ">=6.8 <7",
     "npm": ">=3.10 <4"
   },
+  "files": [
+    "README.md",
+    "dist",
+    "docs",
+    "public",
+    "src",
+    "test",
+    "package.json",
+    "yarn.lock"
+  ],
   "browserify": {
     "transform": [
       "coffeeify"
