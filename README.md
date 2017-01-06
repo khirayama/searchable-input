@@ -10,7 +10,8 @@
 
 ## Getting Started
 ### Use directly
-- Copy [searchable-input.js](/dist/searchable-input.js) and [searchable-input.css](/dist/searchable-input.css).
+- Copy [searchable-input.js](https://github.com/khirayama/searchable-input/raw/npm-publish/pkg/searchable-input.js) and
+  [searchable-input.css](https://raw.githubusercontent.com/khirayama/searchable-input/npm-publish/pkg/searchable-input.css).
 - Paste into your app.
 
 ### Use via Node.js/npm
