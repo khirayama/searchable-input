@@ -5,7 +5,7 @@
 
 ## Feature
 - It is a UI library like [Select2](https://select2.github.io/).
-- It is made of vanilla JS.
+- It does not depend on a framework such as jQuery.
 
 
 ## Getting Started
