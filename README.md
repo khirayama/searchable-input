@@ -1,6 +1,9 @@
 # searchable-input
 
+[![npm version](https://badge.fury.io/js/searchable-input.svg)](https://badge.fury.io/js/searchable-input)
+
 A smart selectbox
+
 
 ![](/docs/demo.gif)
 
