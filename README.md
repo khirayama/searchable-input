@@ -1,5 +1,7 @@
 # searchable-input
 
+A smart selectbox
+
 ![](/docs/demo.gif)
 
 
