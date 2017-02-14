@@ -376,13 +376,13 @@ class SearchableInput extends EventEmitter
       for item, index in items
         escapeItem = escapeHtml(JSON.stringify(item))
         if item.items
-          html += '<li><span class="searchable-input-list-title">' + item.name + '</span><ul>' + @_templateItems(item.items, itemIndex) + '</ul></li>'
+          html += '<li><span class="searchable-input-list-title">' + escapeHtml(item.name) + '</span><ul>' + @_templateItems(item.items, itemIndex) + '</ul></li>'
           itemIndex += item.items.length
         else
           if itemIndex == @_itemIndex
-            html += "<li class='searchable-input-list-item is-selected' data-item='#{ escapeItem }'>" + item.name + '</li>'
+            html += "<li class='searchable-input-list-item is-selected' data-item='#{ escapeItem }'>" + escapeHtml(item.name) + '</li>'
           else
-            html += "<li class='searchable-input-list-item' data-item='#{ escapeItem }'>" + item.name + '</li>'
+            html += "<li class='searchable-input-list-item' data-item='#{ escapeItem }'>" + escapeHtml(item.name) + '</li>'
           itemIndex += 1
     html
 
@@ -401,7 +401,7 @@ class SearchableInput extends EventEmitter
   _template: (searchedItems) ->
     """
       <div class="searchable-input">
-        <a href="javascript:void(0)" class="js-searchable-input-label searchable-input-label">#{ @_labelValue }</a>
+        <a href="javascript:void(0)" class="js-searchable-input-label searchable-input-label">#{ escapeHtml(@_labelValue) }</a>
         <input type="hidden" name="#{ @_inputName }" value="#{ @_inputValue }" />
         #{if @_isListShown then @_templateSearchBox(searchedItems) else ''}
       </div>
